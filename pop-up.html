@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup</title>
+    <style>
+        #blur.active {
+            filter: blur(6px);
+            pointer-events: none;
+            user-select: none;
+            transition: 0.5s;
+        }
+        #pop-up {
+            position: fixed;
+            width: 333px;
+            height: 400px;
+            background-color: aqua;
+            color: black;
+            left: 50%;
+            top:100px;
+            transform: translate(-50%,-50%);
+            visibility: hidden;
+            opacity: 0;
+            transition: 1s ease-in-out;
+        }
+        #pop-up.active-popup {
+            top: 40%;
+            visibility: visible;
+            opacity: 1;
+            transition: 1s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div id="blur"class="container">
+        <div class="content">
+           <span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, ratione.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, ratione.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, ratione.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, ratione.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, dolores est quisquam odio provident delectus necessitatibus! Impedit cum animi voluptas hic natus non nulla eum aut rem nostrum, voluptatem illo?
+            Aliquam recusandae odio laboriosam amet, sint consequatur magnam culpa ipsa illo aliquid quia unde ea aut natus dicta fugit dolore quae ad! Reiciendis hic aspernatur, tempore explicabo minima reprehenderit possimus.
+            Veritatis sed cumque fugiat tenetur ullam, dignissimos provident aut consectetur, voluptatem doloremque dicta! Assumenda tempore temporibus, accusantium sed exercitationem aperiam dicta repudiandae maiores quasi modi eos ullam necessitatibus itaque? Id?
+            Pariatur, rerum. Optio voluptas pariatur architecto expedita libero. Possimus mollitia ex hic blanditiis debitis ratione, impedit in. Officiis quaerat provident laborum, deserunt voluptate obcaecati voluptatum veritatis unde nostrum maxime aperiam!
+            Dolorem perspiciatis, molestiae labore quod quos quo! Suscipit facilis quos aut in et laborum, odit quia molestiae dolorem ipsa dignissimos beatae. Sunt harum praesentium ipsum blanditiis, ad inventore odit architecto.
+            Numquam quasi illo, similique ipsum sed sint quod veritatis repudiandae ratione neque quibusdam vitae, minus dolorem. Reiciendis possimus cumque inventore minima excepturi voluptatibus, dolore odit atque vero odio dolorum adipisci.
+            Tenetur quaerat nisi, ratione voluptate nam fugiat fugit repudiandae molestiae ipsa iste aperiam et dolor quia dolore. Sequi, libero! Ipsa suscipit nulla sequi quis nemo consequuntur possimus. Repudiandae, delectus ratione.
+            Delectus accusamus dolorem blanditiis mollitia in tenetur perferendis nobis, recusandae tempore animi incidunt, optio quis. Laborum assumenda laboriosam temporibus aliquam, voluptate deserunt mollitia! Odio aut illum expedita, aspernatur blanditiis consectetur.
+            Ea, aliquid. Amet, accusantium aliquid veritatis veniam, earum dicta eos esse, ratione pariatur modi porro officiis magnam non quos. Architecto nemo quam officiis optio illo, repellendus ut esse molestiae voluptatum.
+            Sint, laborum explicabo odit porro recusandae, magnam nesciunt laboriosam, minus libero accusamus pariatur eligendi modi! Error voluptates totam atque numquam doloribus reiciendis, quod voluptatibus quo, facere, culpa temporibus esse pariatur.
+            Quia necessitatibus placeat ipsum pariatur nostrum exercitationem molestiae minima unde, quasi minus officiis maiores, magnam voluptatem dolore magni? Doloribus natus ex dolore dolor, quaerat itaque nulla magnam aspernatur laborum veritatis?
+            Rerum dolorum blandeligendi. Eveniet non iusto doloribus fuga quidem iure voluptate reprehenderit, culpa ad fugit voluptates dignissimos, necessitatibus eius. Esse eum fugit maiores facilis ipsam fugiat omnis corporis!
+            Provident eius quam soluta necessitatibus rem, laudantium assumenda accusamus maiores porro nesciunt neque, mollitia cum officia modi ea, blanditiis doloribus expedita! Reiciendis repudiandae exercitationem dolorum architecto praesentium cupiditate laboriosam modi?</span>
+            <a class='btn' href="">Click</a>
+        </div>
+    </div>
+    <div id="pop-up">
+        <span>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Tenetur vitae magni sapiente? Quis dolorem rem adipisci, facilis eius sit doloremque.
+        </span>
+        <a class='btn' href="">Close</a>
+    </div>
+    <script>
+        let btn = document.querySelector('.btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            let blur = document.getElementById('blur');
+            blur.classList.toggle('active')
+            let popup = document.getElementById('pop-up');
+            popup.classList.toggle('active-popup')
+        })
+    </script>
+</body>
+</html>
