@@ -4,33 +4,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="crossorigin="anonymous"></script>
     <title>Popup</title>
     <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
         #blur.active {
             filter: blur(6px);
             pointer-events: none;
             user-select: none;
             transition: 0.5s;
         }
-        #pop-up {
-            position: fixed;
+        #blur {
+            transition: 0.5s;
+        }
+        #pop-up{
+            position: absolute;
             width: 333px;
             height: 400px;
             background-color: aqua;
             color: black;
-            left: 50%;
-            top:100px;
-            transform: translate(-50%,-50%);
+            left: 260px;
+            top: 10%;
+     
+        }
+      
+        .hidden {
+            position: absolute;
+            top: -230px;
             visibility: hidden;
             opacity: 0;
             transition: 1s ease-in-out;
         }
+        .visible {
+            position: absolute;
+            top: 0;
+            visibility: visible;
+            opacity: 1;
+            /* transform: translateY(0); */
+            transition: 0.5s ease-in-out;
+        }
+    
         #pop-up.active-popup {
-            top: 40%;
+            top: 20%;
             visibility: visible;
             opacity: 1;
             transition: 1s ease-in-out;
         }
+     
     </style>
 </head>
 <body>
@@ -53,25 +78,43 @@
             Quia necessitatibus placeat ipsum pariatur nostrum exercitationem molestiae minima unde, quasi minus officiis maiores, magnam voluptatem dolore magni? Doloribus natus ex dolore dolor, quaerat itaque nulla magnam aspernatur laborum veritatis?
             Rerum dolorum blandeligendi. Eveniet non iusto doloribus fuga quidem iure voluptate reprehenderit, culpa ad fugit voluptates dignissimos, necessitatibus eius. Esse eum fugit maiores facilis ipsam fugiat omnis corporis!
             Provident eius quam soluta necessitatibus rem, laudantium assumenda accusamus maiores porro nesciunt neque, mollitia cum officia modi ea, blanditiis doloribus expedita! Reiciendis repudiandae exercitationem dolorum architecto praesentium cupiditate laboriosam modi?</span>
-            <a class='btn' href="">Click</a>
+            <button class='btn' >Click</button>
         </div>
     </div>
-    <div id="pop-up">
-        <span>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Tenetur vitae magni sapiente? Quis dolorem rem adipisci, facilis eius sit doloremque.
-        </span>
-        <a class='btn' href="">Close</a>
+    <div  class="pop-up-container hidden">
+        <div id="pop-up">
+            <span>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Tenetur vitae magni sapiente? Quis dolorem rem adipisci, facilis eius sit doloremque.
+            </span>
+            <button class='btn close' >Close</button>
+        </div>
     </div>
+    
     <script>
-        let btn = document.querySelector('.btn').addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            let blur = document.getElementById('blur');
-            blur.classList.toggle('active')
-            let popup = document.getElementById('pop-up');
-            popup.classList.toggle('active-popup')
+        $('.btn').on('click',function() {
+            console.log('clicket');
+            $('.pop-up-container').addClass('visible')
+            $('#blur').addClass('active')
+            
         })
+
+        $('.btn.close').on('click',function() {
+            console.log('clicket');
+            $('.pop-up-container').removeClass('visible')
+            $('.pop-up-container').addClass('hidden')
+            $('#blur').removeClass('active')
+        })
+        // let btn = document.querySelector('.btn').addEventListener('click', function(e) {
+        //     e.preventDefault();
+        //     e.stopPropagation();
+        //     let blur = document.getElementById('blur');
+        //     blur.classList.toggle('active')
+        //     let popup = document.getElementById('pop-up');
+        //     popup.classList.toggle('active-popup')
+            
+        // })
+        
     </script>
 </body>
 </html>
